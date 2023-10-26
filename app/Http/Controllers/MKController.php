@@ -22,6 +22,11 @@ class MKController extends Controller
             'nama' => 'Sensor and Transduser',
             'jurusan' => 'Sistem Komputer'
         ],
+        [
+            'id' => 'SK04',
+            'nama' => 'Microprocessor',
+            'jurusan' => 'Sistem Komputer'
+        ]
     ];
 
     public function index()
