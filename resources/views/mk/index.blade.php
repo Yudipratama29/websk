@@ -29,11 +29,11 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($data as $d)
+                    @foreach ($mk as $m)
                         <tr>
-                            <td>{{ $d['id'] }}</td>
-                            <td>{{ $d['nama'] }}</td>
-                            <td>{{ $d['jurusan'] }}</td>
+                            <td>{{ $m['id'] }}</td>
+                            <td>{{ $m['nama'] }}</td>
+                            <td>{{ $m['jurusan'] }}</td>
                             <td class="float-end">
                                 <a class="btn btn-sm btn-warning"
                                     href="{{ url('/mk/' . $loop->index . '/edit') }}">Ubah</a>

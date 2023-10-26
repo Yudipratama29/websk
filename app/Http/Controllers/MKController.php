@@ -8,25 +8,25 @@ class MKController extends Controller
 {
     private $mk = [
         [
-            'ID' => 'SK01',
-            'Nama' => 'Object Oriented Programming',
-            'Jurusan' => 'Sistem Komputer'
+            'id' => 'SK01',
+            'nama' => 'Object Oriented Programming',
+            'jurusan' => 'Sistem Komputer'
         ],
         [
-            'ID' => 'SK02',
-            'Nama' => 'Web Programming',
-            'Jurusan' => 'Sistem Komputer' 
+            'id' => 'SK02',
+            'nama' => 'Web Programming',
+            'jurusan' => 'Sistem Komputer' 
         ],
         [
-            'ID' => 'SK03',
-            'Nama' => 'Sensor and Transduser',
-            'Jurusan' => 'Sistem Komputer'
+            'id' => 'SK03',
+            'nama' => 'Sensor and Transduser',
+            'jurusan' => 'Sistem Komputer'
         ],
     ];
 
     public function index()
     {
-        return view('mk.index', ['data' => $this->mk] );
+        return view('mk.index', ['mk' => $this->mk] );
     }
 
     public function create()
