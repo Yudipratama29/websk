@@ -1,6 +1,6 @@
 @extends('layout.master')
 
-@section('title', 'Mahasiswa')
+@section('title', 'MK')
 
 @section('breadcrumb')
     <li class="breadcrumb-item active">Mata Kuliah</li>
@@ -29,11 +29,11 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($mk as $m)
+                    @foreach ($data as $d)
                         <tr>
-                            <td>{{ $m['id'] }}</td>
-                            <td>{{ $m['nama'] }}</td>
-                            <td>{{ $m['jurusan'] }}</td>
+                            <td>{{ $d['id'] }}</td>
+                            <td>{{ $d['nama'] }}</td>
+                            <td>{{ $d['jurusan'] }}</td>
                             <td class="float-end">
                                 <a class="btn btn-sm btn-warning"
                                     href="{{ url('/mk/' . $loop->index . '/edit') }}">Ubah</a>
