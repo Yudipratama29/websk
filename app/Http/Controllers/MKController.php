@@ -3,35 +3,20 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
+use function Laravel\Prompts\select;
 
 class MKController extends Controller
 {
-    private $mk = [
-        [
-            'id' => 'SK01',
-            'nama' => 'Object Oriented Programming',
-            'jurusan' => 'Sistem Komputer'
-        ],
-        [
-            'id' => 'SK02',
-            'nama' => 'Web Programming',
-            'jurusan' => 'Sistem Komputer' 
-        ],
-        [
-            'id' => 'SK03',
-            'nama' => 'Sensor and Transduser',
-            'jurusan' => 'Sistem Komputer'
-        ],
-        [
-            'id' => 'SK04',
-            'nama' => 'Microprocessor',
-            'jurusan' => 'Sistem Komputer'
-        ]
-    ];
-
     public function index()
     {
-        return view('mk.index', ['mk' => $this->mk] );
+        $mk = DB::table('mk')
+        ->select("mk.idmk", "mk.namamk", "jurusan_id", "jurusan.nama AS jurusan_nama")
+        ->join('jurusan', 'jurusan.id', '=', 'mk.jurusan_id')
+        ->get();
+
+        return view('mk.index', ['mk' => $mk] );
     }
 
     public function create()
@@ -41,7 +26,15 @@ class MKController extends Controller
     
     public function edit($id)
     {
-        return view('mk.edit', ['mk' => $this->mk[$id], 'id' => $id]);
+        $mk = DB::table('mk')
+        ->select("mk.idmk", "mk.namamk", "jurusan_id", "jurusan.nama AS jurusan_nama")
+        ->join('jurusan', 'jurusan.id', '=', 'mk.jurusan_id')
+        ->where('mk.idmk', $id)
+        ->first();
+
+        $jurusan = DB::table('jurusan')->get();
+
+        return view('mk.edit', ['mk' => $mk, 'id' => $id, 'jurusan' => $jurusan]);
     }
 
     public function show($id)

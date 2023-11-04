@@ -20,18 +20,18 @@
             <div class="card-body">
                 <div>
                     <label class="form-label">id</label>
-                    <input class="form-control" type="text" name="id" value="{{ $mk['id'] }}">
+                    <input class="form-control" type="text" name="id" value="{{ $mk->idmk }}">
                 </div>
                 <div>
                     <label class="form-label">Nama Mata Kuliah</label>
-                    <input class="form-control" type="text" name="nama" value="{{ $mk['nama'] }}">
+                    <input class="form-control" type="text" name="nama" value="{{ $mk->namamk }}">
                 </div>
                 <div>
                     <label class="form-label">Jurusan</label>
                     <select class="form-select" name="jurusan">
-                        <option {{ $mk['jurusan'] == 'TI' ? 'selected' : '' }} value="TI">TI</option>
-                        <option {{ $mk['jurusan'] == 'SK' ? 'selected' : '' }} value="SK">SK</option>
-                        <option {{ $mk['jurusan'] == 'DGM' ? 'selected' : '' }} value="DGM">DGM</option>
+                        @foreach($jurusan as $j)
+                            <option {{ $mk->jurusan_id == $j->id ? 'selected' : '' }} value="{{ $j->id }}">{{ $j->nama }}</option>
+                        @endforeach
                     </select>
                 </div>
 
