@@ -27,7 +27,12 @@
                 </div>
                 <div>
                     <label class="form-label">Jurusan</label>
-                    <input class="form-control" type="text" name="nama">
+                    <select class="form-select" name="jurusan">
+                        <option value="1">Sistem Komputer</option>
+                        <option value="2">Teknologi Informasi</option>
+                        <option value="3">Design Komunikasi Visual</option>
+                        <option value="4">Business Digital</option>
+                </select>
                 </div>
 
             </div>

@@ -28,9 +28,10 @@
                 <div>
                     <label class="form-label">Jurusan</label>
                     <select class="form-select" name="jurusan">
-                        <option value="1">TI</option>
-                        <option value="2">SK</option>
-                        <option value="3">DGM</option>
+                        <option value="1">Sistem Komputer</option>
+                        <option value="2">Teknologi Informasi</option>
+                        <option value="3">Design Komunikasi Visual</option>
+                        <option value="4">Business Digital</option>
                     </select>
                 </div>
 
