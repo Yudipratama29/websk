@@ -35,9 +35,14 @@
                             <td>{{ $d->nama }}</td>
                             <td>{{ $d->jurusan_nama }}</td>
                             <td class="float-end">
+                                <a class="btn btn-sm btn-success" href="{{ url('/mahasiswa/' . $d->id ) }}">Show</a>
                                 <a class="btn btn-sm btn-warning"
                                     href="{{ url('/mahasiswa/' . $d->id . '/edit') }}">Ubah</a>
-                                <button class="btn btn-sm btn-danger">Hapus</button>
+                                <form style="display: inline;" action="{{ url('/mahasiswa/' . $d->id ) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                <button type="submit" class="btn btn-sm btn-danger">Hapus</button>
+                                </form>
                             </td>
                         </tr>
                     @endforeach

@@ -28,10 +28,9 @@
                 <div>
                     <label class="form-label">Jurusan</label>
                     <select class="form-select" name="jurusan">
-                        <option value="1">Sistem Komputer</option>
-                        <option value="2">Teknologi Informasi</option>
-                        <option value="3">Design Komunikasi Visual</option>
-                        <option value="4">Business Digital</option>
+                        @foreach($jurusan as $j)
+                            <option value="{{ $j->id }}">{{ $j->nama }}</option>
+                        @endforeach
                     </select>
                 </div>
 
