@@ -31,10 +31,16 @@ class MahasiswaController extends Controller
 
     public function store(Request $request)
     {
+        $validated = $request->validate([
+            'nim' => ['required', 'min: 8', 'max : 10'],
+            'nama' => 'required',
+            'jurusan' => ['required', 'exists:jurusan,id'],
+        ]);
+
         $mhs = Mahasiswa::create([
-            'nim' => $request->nim,
-            'nama' => $request->nama,
-            'jurusan_id' => $request->jurusan,
+            'nim' => $validated['nim'],
+            'nama' => $validated['nama'],
+            'jurusan_id' => $validated['jurusan'],
         ]);
 
             return redirect(url('/mahasiswa'));
